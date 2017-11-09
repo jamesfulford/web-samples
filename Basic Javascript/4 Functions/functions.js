@@ -51,6 +51,13 @@ function max(numbers) {
 }
 
 
+function forEach(fn, list) {
+	for(var i = 0; i < list.length; i++) {
+		fn(list[i], i, list);
+	}
+}
+
+
 
 tests = [
 
