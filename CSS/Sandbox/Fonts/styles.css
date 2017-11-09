@@ -1,0 +1,19 @@
+body {
+	font-size: 15px; /* default value for document */
+}
+p {
+	font-family: "Open Sans", sans-serif;
+	line-height: 1.5;  /* double spacing */
+}
+
+span#consect {
+	font-weight: bold; /* [1-8]00, available depending on font */
+	text-decoration: line-through;
+	font-family: "Indie Flower", cursive;
+}
+
+h1 {
+	font-family: Georgia;
+	font-size: 3.0em; /* 3 times larger than default value, so 45px. */
+	text-align: center;
+}
