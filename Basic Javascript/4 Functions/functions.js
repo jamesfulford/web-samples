@@ -19,11 +19,64 @@ function kebabToSnake(text) {
 	}).join("")
 }
 
-console.log("isEven(42) => " + isEven(42));
-console.log("isEven(41) => " + isEven(41));
+function printReverse(list) {
+	for(var i = list.length; i >= 0; i--) {
+		console.log(list[i]);
+	}
+}
 
-console.log("factorial(0) => " + factorial(0));
-console.log("factorial(4) => " + factorial(4));
+function isUniform(list) {
+	for(var i = 1; i < list.length; i++) {
+		if(list[0] !== list[i]) {
+			return false;
+		}
+	}
+	return true;
+}
 
-console.log("kebabToSnake(\"hi\") => " + kebabToSnake("hi"))
-console.log("kebabToSnake(\"hi-there-partner\") => " + kebabToSnake("hi-there-partner"))
+
+function sumArray(numbers) {
+	return numbers.reduce((a, b) => a + b)
+}
+
+function max(numbers) {
+	if(numbers.length) {  // returns undefined otherwise
+		return numbers.reduce(function(a, b) {
+			if(a > b) {
+				return a;
+			}
+			return b;
+		});
+	}	
+}
+
+
+
+tests = [
+
+	isEven(42) === true,
+	isEven(41) === false,
+	factorial(0) === 1,
+	factorial(4) === 24,
+	kebabToSnake("hi") === "hi",
+	kebabToSnake("hi-there-partner") === "hi_there_partner",
+	isUniform(["a", "a", "a"]) === true,
+	isUniform(["a", 1, "a"]) === false,
+	isUniform(["1", 1]) === false,
+	sumArray([1, 2, 3]) === 6,
+	sumArray([1, 2, -3]) === 0,
+	sumArray([10, 11, 12]) === 33,
+	max([1, 3, 6]) === 6,
+	max([1, 3, -6]) === 3,
+	max([1]) === 1,
+	max([]) === undefined,
+
+]
+
+tests.forEach(function(result, i) {
+	if(!result) {
+		console.log("Test " + i + " failed");
+	}
+})
+
+console.log("Tests passed: " + tests.reduce((p, q) => p && q))
