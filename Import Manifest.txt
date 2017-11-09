@@ -1,0 +1,5 @@
+Bootstrap:
+	jQuery (dependency)
+	bootstrap (CSS, JS)
+	FontAwesome
+	Google Fonts
