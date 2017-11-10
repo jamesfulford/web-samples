@@ -40,8 +40,11 @@ var goalColor = pickGoal(colors);
 // Selections
 var squares = document.querySelectorAll(".square");
 var newGameButton = document.querySelectorAll("#stripe button")[0];
-var goalDisplay = document.querySelector("h1 span");
+var goalDisplay = document.querySelector("#rgb-display");
 var topBanner = document.querySelector("h1");
+
+var stripeButtons = document.querySelectorAll("div#stripe button");
+
 var easyButton = document.querySelectorAll("#stripe button")[1]
 var hardButton = document.querySelectorAll("#stripe button")[2]
 
@@ -72,7 +75,7 @@ function setView() {
 	newGameButton.textContent = "New Colors";
 
 	//
-	// START NEW GAME
+	// PREPARE FOR NEW GAME
 	//
 	// Show/hide colors and set colors
 	for(var i = 0; i < squares.length; i++) {
@@ -89,13 +92,11 @@ function setView() {
 function displayMessage(message) {
 	document.querySelector("#message").textContent = message;
 }
-function showEasyDifficulty() {
-		easyButton.classList.add("selected");
-		hardButton.classList.remove("selected");
-}
-function showHardDifficulty() {
-		hardButton.classList.add("selected");
-		easyButton.classList.remove("selected");
+function selectDifficulty(button) {
+	for(var i = 1; i < stripeButtons.length; i++) {
+		stripeButtons[i].classList.remove("selected");
+	}
+	button.classList.add("selected");
 }
 
 
@@ -103,34 +104,32 @@ function showHardDifficulty() {
 //
 // CONTROLLER
 //
-// Choice event listeners
-for(var i = 0; i < squares.length; i++) {
-	squares[i].addEventListener("click", function() {
-		// Win condition
-		if(this.style.backgroundColor === goalColor) {
-			displayMessage("Correct!");
-			win();
-		} else {
-			this.style.backgroundColor = DEFAULT_BACKGROUND;
-			displayMessage("Try Again")
-		}
-	});
+// Set initial event listeners
+function init() {
+	// Choice event listeners
+	for(var i = 0; i < squares.length; i++) {
+		squares[i].addEventListener("click", function() {
+			// Win condition
+			if(this.style.backgroundColor === goalColor) {
+				displayMessage("Correct!");
+				win();
+			} else {
+				this.style.backgroundColor = DEFAULT_BACKGROUND;
+				displayMessage("Try Again")
+			}
+		});
+	}
+	// Game Reset
+	newGameButton.addEventListener("click", newGame);
+	// Change Difficulty Listeners
+	for(var i = 1; i < stripeButtons.length; i++) {
+		stripeButtons[i].addEventListener("click", function() {
+			selectDifficulty(this);
+			colors = makeColors(Number(this.getAttribute("data-choices")));
+			newGame();
+		});
+	}
 }
-// Game Reset
-newGameButton.addEventListener("click", newGame);
-// Change Difficulty Easy
-easyButton.addEventListener("click", function() {
-	showEasyDifficulty();
-	colors = makeColors(3);
-	newGame();
-});
-// Change Difficulty Hard
-hardButton.addEventListener("click", function() {
-	showHardDifficulty();
-	colors = makeColors(6);
-	newGame();
-});
-
 // Start new game
 function newGame() {
 	// Set Model
@@ -141,4 +140,5 @@ function newGame() {
 	setView();
 }
 
+init();
 newGame();
