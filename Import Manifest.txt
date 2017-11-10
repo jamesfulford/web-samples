@@ -1,5 +1,12 @@
-Bootstrap:
-	jQuery (dependency)
+Bootstrap (3.3.7):
+	jQuery (JS) (dependency)
 	bootstrap (CSS, JS)
-	FontAwesome
-	Google Fonts
+
+FontAwesome (4.7.0):
+	fontawesome (CSS)
+
+Google Font:
+	fonts.googleapis.com (CSS)
+
+jQuery (3.2.1):
+	jQuery (JS)
