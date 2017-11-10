@@ -11,6 +11,8 @@ Exercises and Projects in *this repo* exhibit these skills:
 				.fadeIn, .fadeOut, .fadeToggle
 
 			jQuery events
+				Event Propagation ("Event Bubbling")
+					event.stopPropagation()
 				.on
 					listeners added to future objects too
 				$ as a wrapper ( $(this) )
@@ -68,4 +70,6 @@ Exercises and Projects in *this repo* exhibit these skills:
 
 	A method can be written and then later told which object/prototype to associate with. You can access the source code of a function object, and even create functions and pass in a string of source code.
 
-	I thought I loved Python functions and my *args and my **kwargs (ok - will miss those) and my lambdas. But the flexibility in Javascript is just... insane. I love it.   
+	I thought I loved Python functions and my *args and my **kwargs (ok - will miss keyword arguments) and my lambdas. But the power in Javascript is just... insane. I love it.
+
+	Edit: Default values for parameters can reference each other! Eat that, Python!
