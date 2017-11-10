@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Sandbox</title>
+	<!-- Javascript -->
+	<script type="text/javascript" src="../lib/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+	<h1>jQuery Sandbox</h1>
+
+	<ul>
+		<li class="head-in a-first-class">Hi 1</li>
+		<li>Hi 2</li>
+		<li>Hi 3</li>
+	</ul>
+
+	<form>
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<input type="submit" name="">
+	</form>
+	<button id="show-password">Show password</button>
+
+
+	<div class="all col-6">Check out all my classes!</div>
+
+	<script type="text/javascript">
+		$("h1").text("The " + $("h1").text());
+
+		//
+		// .text()
+		//
+		// deals with .textContent
+		var lis = ["Apples", "Mangoes", "Peaches"];
+		$("li").text(lis);  // coerces input to be str...
+		// does not set each to corresponding value in list
+
+		// Applies function to each
+		$("h1").text((i, text) => text.toLowerCase());
+
+		// saving grace: can use function to list assign
+		$("li").text((i, text) => lis[i])
+
+		//
+		// .html()
+		//
+		// deals with .innerHTML
+		// (Acts similar to .text())
+		// Wrap all li's in strong tags
+		$("li").html((i, html) => "<strong>" + html + "</strong>")
+
+
+		//
+		// .attr()
+		//
+		// Sort class list of .head-in tags
+		$("li.head-in").attr("class", (i, clsses) => String(clsses).split(" ").sort().join(" ")
+		);
+		// yes, there are better ways of accessing the class.
+
+		// Auto set placeholders (not a best practice, but good jQuery exercise?)
+		$("input").attr("placeholder", function(i, p) {
+			
+			// mysteriously cannot access password's name
+			var name = $("input:nth-of-type(" + i + 1 + ")").attr("name");
+			if(name) {
+				return "Enter your " + name;
+			}
+			return "";
+		});
+
+		//
+		// Event handler
+		//
+		// toggle showing password
+		// using $(this)
+		$("#show-password").on("click", function() {
+			var pwd = $("input[name=\"password\"]")
+			if(pwd.attr("type") === "password") {
+				pwd.attr("type", "text");
+				$(this).text("Hide Password");	
+			} else {
+				pwd.attr("type", "password");
+				$(this).text("Show Password");
+			}
+		})
+
+		//
+		// .val(), Submission event
+		//
+		// Never do this at home
+		$("form").submit(function(event) {
+			alert("Submitted: " + $("input[name=\"password\"]").val())
+		})
+
+		//
+		// .[add|remove|toggle]Class(cls)
+		//
+		// .all class used to set all sizes for all classes with -[0 to 12]
+		$(".all").addClass(function(i, clsses) {
+			return clsses.split(" ").filter(s => s.match(".*-(1[0-2]|[1-9])")).map(function(s) {
+					var sizes = ["xs", "sm", "md", "lg"] 
+					var pre = s.split("-");
+					var post =  "-" + pre.pop();  // postfix
+					var pre = pre.join("-") + "-" // prefix
+					var results = sizes.map(s => pre + s + post);
+					return results.join(" ")
+			}).join(" ")
+		});
+		
+	</script>
+	
+
+	<br>
+	<br>
+	<br>
+	<div>Div 1</div>
+	<div class="highlight">Div 2</div>
+	<div id="third">Div 3</div>
+	<div class="highlight">Div 4</div>
+
+	<script type="text/javascript">
+		// Exercise
+		$("div").css("background-color", "purple");
+		$("div.highlight").css("width", "200px");
+		$("div#third").css("border", "1px solid orange");
+		$("body div:nth-of-type(1)").css("color", "pink");
+	</script>
+</body>
+</html>
