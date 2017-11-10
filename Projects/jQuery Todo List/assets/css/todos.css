@@ -1,0 +1,111 @@
+
+/*Background*/
+body {
+	background: #232526;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+
+/**/
+/*Todo Application Specific*/
+/**/
+/*Container*/
+#container {
+	width: 360px;
+	margin: 100px auto;
+
+	background-color: #f7f7f7;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+
+	font-family: Roboto;
+}
+#container h1 {
+	margin: 0;
+	padding: 10px 20px;
+
+	background-color: #2980b9;
+
+	color: white;
+	/*font-family: ;*/
+	font-weight: normal;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+#container h1 i.fa {  /*dropdown icon*/
+	float: right;
+}
+#container input[type="text"] {  /*input box*/
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+
+	width: 100%;  /*includes padding*/
+	padding: 13px 13px 13px 20px;
+	border: 3px solid rgba(0, 0, 0, 0);
+
+	background-color: #f7f7f7;
+
+	color: #2980b9;
+	font-size: 18px;
+}
+#container input[type="text"]:focus {  /*in input box*/
+	border: 3px solid #2980b9;
+	
+	background-color: white;
+	outline: none;
+}
+
+/**/
+/*Todo list items*/
+/**/
+#container ul {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+	color: #666;
+}
+#container ul li {
+	height: 40px;
+
+	background-color: white;
+
+	line-height: 40px;
+}
+#container ul li:nth-child(2n) {  /*alternating colors*/
+	background-color: #f7f7f7;
+}
+#container ul li.done {  /*done styling*/
+	text-decoration: line-through;
+	color: grey;
+}
+#container ul li span {  /*delete boxes*/
+	display: inline-block;
+
+	height: 40px;
+	width: 0;
+	margin-right: 20px;
+
+	background: #e74c3c;
+	opacity: 0.0;
+
+	color: white;
+	text-align: center;
+	line-height: 40px;
+
+	transition: 0.2s linear;
+}
+#container ul li:hover span {  /*show delete box on li hover*/
+	width: 40px;
+	opacity: 1.0;
+}
+#container ul li:hover span:hover {  /*delete box brighter on span hover*/
+	background-color: red;
+}
+#container ul li span i.fa {  /*x symbol*/
+	color: white;
+}
