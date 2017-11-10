@@ -2,20 +2,41 @@
 /*background*/
 body {
 	background-color: #232323;
+	margin: 0;
+	font-family: Montserrat, Avenir;
 }
 
 
 /*header*/
 h1 {
 	color: white;
+	text-align: center;
+	background-color: steelblue;
+	margin: 0;
+	font-weight: normal;
+	text-transform: uppercase;
+	line-height: 1.1;
+	padding: 20px 0;
 }
 h1 span {
-	/*Goal Color Display*/
-	text-transform: uppercase;
+	font-size: 200%;
 }
-
-span#message {
-	color: white;
+div#stripe {
+	background-color: white;
+	height: 30px;
+	text-align: center;
+	color: steelblue;
+	letter-spacing: 1px;
+}
+div#stripe button {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: bold;
+}
+.selected {
+	background-color: steelblue;
 }
 
 
