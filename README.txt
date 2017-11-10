@@ -13,8 +13,8 @@ Exercises and Projects in *this repo* exhibit these skills:
 			jQuery events
 				Event Propagation ("Event Bubbling")
 					event.stopPropagation()
-				.on
-					listeners added to future objects too
+				.on(event, callback)
+					.on(event, child, callback) listen in on children
 				$ as a wrapper ( $(this) )
 				.keyup, .keydown, .keypress
 					event objects, .which (ASCII)
@@ -72,4 +72,4 @@ Exercises and Projects in *this repo* exhibit these skills:
 
 	I thought I loved Python functions and my *args and my **kwargs (ok - will miss keyword arguments) and my lambdas. But the power in Javascript is just... insane. I love it.
 
-	Edit: Default values for parameters can reference each other! Eat that, Python!
+	Edit: Default values for parameters can reference each other! Love it more.
