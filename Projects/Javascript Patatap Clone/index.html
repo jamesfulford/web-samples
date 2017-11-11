@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Circula</title>
+
+	<link rel="stylesheet" type="text/css" href="circles.css">
+	<!-- Howler.js -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.min.js"></script>
+	<!-- Paper.js -->
+	<script type="text/javascript" src="assets/js/paper-full.min.js"></script>
+
+	<!-- Sound Mapping -->
+	<script type="text/javascript" src="data.js"></script>
+
+	<script type="text/paperscript" canvas="canvas">
+		var maxPoint = new Point(view.size.width, view.size.height);
+		var circles = [];
+		function onKeyDown(event) {
+			if(keys[event.key]){
+				keys[event.key].sound.play()
+				var circle = new Path.Circle(Point.random() * maxPoint, 300);
+				circle.fillColor = keys[event.key].color;
+				circles.push(circle);
+			}
+		}
+
+		function onFrame(event) {
+			for(var i = 0; i < circles.length; i++) {
+				circles[i].fillColor.hue += 2;
+				circles[i].scale(0.92);
+				if(circles[i].area < 1){
+					circles[i].remove();
+					circles.splice(i, 1);
+					i--;
+			    }
+			}
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+</html>
