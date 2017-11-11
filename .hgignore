@@ -1,3 +1,4 @@
 (?i)\.mp3
 (?i)\.ogg
 (?i)\.c9/(?i)
+(?i)/node_modules/(?i)
