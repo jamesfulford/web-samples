@@ -1,4 +1,6 @@
-(?i)\.mp3
-(?i)\.ogg
-(?i)\.c9/(?i)
-(?i)/node_modules/(?i)
+.*\/node_modules\/.+
+
+syntax: glob
+*.mp3
+*.ogg
+*.c9/*
