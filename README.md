@@ -1,5 +1,5 @@
 # Small Tasks Portfolio
-* Projects and work not big enough for a separate repository *
+* Projects and work not big enough for a separate repository
 
 Exercises and Projects in *this repo* exhibit these skills:
 
