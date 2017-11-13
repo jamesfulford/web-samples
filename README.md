@@ -1,9 +1,30 @@
 # Small Tasks Portfolio
-* Projects and work not big enough for a separate repository
+## Projects and work not big enough for a separate repository
 
 Exercises and Projects in *this repo* exhibit these skills:
 
 (Note: This is not a list of everything I know.)
+
+## Back End Development
+
+### Express
+
+* Request parameters
+    * .body (body-parser)
+    * .query
+* Rendering responses
+    * ejs
+* Routes, Endpoints, and Matching Precedence
+    * Path/Route variables
+    * Splat (*)
+    * post, get
+
+### Node
+
+* Request
+* NPM
+    * packages.json
+    * --save flag
 
 ## Front End Development
 
@@ -28,9 +49,9 @@ Exercises and Projects in *this repo* exhibit these skills:
     * .attr, .val, .text, .html
         * passing in functions
     * $ as a selector
-    * (More Javascript (it's a JS library))
-    * (More CSS)
-    * (Some HTML)
+* (More Javascript (it's a JS library))
+* (More CSS)
+* (Some HTML)
 
 ### Basic Javascript
 
@@ -57,15 +78,15 @@ Exercises and Projects in *this repo* exhibit these skills:
 * Responsiveness/Responsive Design
     * Grid System
     * Navbars
-    * (More CSS)
-    * (More HTML)
+* (More CSS)
+* (More HTML)
 
 ### CSS
 
 * CSS Box Model
 * Common (and less common) attributes
 * Selectors (common and beyond)
-    * (More HTML)
+* (More HTML)
 
 ### HTML
 
@@ -76,3 +97,9 @@ Exercises and Projects in *this repo* exhibit these skills:
         * Action="/search"
         * Method="[GET|POST]"
     * Inputs
+
+## Miscellaneous
+
+* Mercurial
+    * .hgignore
+    * hgrc
