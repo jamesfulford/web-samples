@@ -1,0 +1,21 @@
+{
+  "name": "express-sandbox",
+  "version": "1.0.0",
+  "description": "Sandbox for using Express.js and experiments.",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "mercurial",
+    "url": "https://jamesfulford@bitbucket.org/jamesfulford/small-task-portfolio"
+  },
+  "author": "James Patrick Fulford",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/jamesfulford/small-task-portfolio"
+}
