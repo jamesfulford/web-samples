@@ -31,7 +31,7 @@ Exercises and Projects in *this repo* exhibit these skills:
     * (More Javascript (it's a JS library))
     * (More CSS)
     * (Some HTML)
-* Basic Javascript:
+* Basic Javascript
   * MVC (Model-View-Controller) Design Pattern
   * DOM Manipulation (without jQuery)
     * Event Listeners
@@ -49,18 +49,18 @@ Exercises and Projects in *this repo* exhibit these skills:
     * datatypes, variables
   * (Some CSS)
   * (Some HTML)
-* Bootstrap:
+* Bootstrap
   * Responsiveness/Responsive Design
   * Grid System
   * Navbars
   * (More CSS)
   * (More HTML)
-* CSS:
+* CSS
   * CSS Box Model
   * Common (and less common) attributes
   * Selectors (common and beyond)
   * (More HTML)
-* HTML:
+* HTML
   * HTML Forms
     * Validation
     * Labels (Accessibility)
