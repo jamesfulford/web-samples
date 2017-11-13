@@ -5,7 +5,7 @@ Exercises and Projects in *this repo* exhibit these skills:
 
 (Note: This is not a list of everything I know.)
 
-## FRONT END DEVELOPMENT
+## Front End Development
 
 ### jQuery
 
@@ -51,7 +51,6 @@ Exercises and Projects in *this repo* exhibit these skills:
     * datatypes, variables
 * (Some CSS)
 * (Some HTML)
-
 
 ### Bootstrap
 
