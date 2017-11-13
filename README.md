@@ -6,6 +6,8 @@ Exercises and Projects in *this repo* exhibit these skills:
 (Note: This is not a list of everything I know.)
 
 *FRONT END DEVELOPMENT*
+
+
 * jQuery
   * jQuery animation effects
     * Asynchronous callbacks
