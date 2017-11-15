@@ -16,11 +16,14 @@ Exercises and Projects in *this repo* exhibit these skills:
     * ejs
 * Routes, Endpoints, and Matching Precedence
     * Path/Route variables
-    * Splat (*)
+    * Splat (asterisk)
     * post, get
 
 ### Node
 
+* Mongoose
+  * Models, CRUD
+  * Connect with MongoDB
 * Request
 * NPM
     * packages.json
