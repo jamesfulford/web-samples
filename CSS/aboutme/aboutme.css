@@ -1,0 +1,24 @@
+
+h1 {
+    color: purple;
+
+    border-color: purple;
+    border-width: 1px;
+    border-style: solid;
+    /*dashed dotted solid*/
+
+    border: 5px solid red;
+}
+
+li {
+    color: orange;
+}
+
+h2 {
+    background: rgb(255, 100, 80)
+}
+
+/*body {*/
+    /*background-image: url("http://www.google.com");*/
+    /*background-repeat: */
+/*}*/

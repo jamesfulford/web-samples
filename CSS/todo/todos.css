@@ -1,0 +1,78 @@
+/*todos.css*/
+
+/*By order of specificness*/
+
+
+* {
+    /*What does specific mean?*/
+    /*select freaking everything*/
+    border: 1px solid lightgrey;
+}
+
+
+
+
+
+li {
+    /*Not too specific*/
+    /*element selector*/
+    border: 1px solid black;
+}
+
+li input {
+    /*select all inputs inside of li tags... somewhere, even if it is really deep*/
+    border: 1px solid yellow;
+}
+
+h4 + ul {
+    /*uls that are adjacent to h4*/
+}
+
+
+
+
+.done {
+    /*PRETTY specific*/
+    /*class selector*/
+    text-decoration: line-through;
+    color: #a9a9a9;
+}
+
+input[type="checkbox"] {
+    /*select by attribute values*/
+    border: 10px solid blue;
+}
+
+a:hover, a:link {
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+#sampleid {
+    /*VERY specific*/
+    /*id selector (ids must be unique)*/
+    background: red;
+}
+
+
+
+
+
+
+
+/*Extra stuff*/
+
+li:nth-of-type(3) {
+    /*changes ONLY the 3rd li in each run*/
+    background: purple;
+}
+
+li:nth-of-type(odd) {
+    /*changes the odd lis in each run*/
+    background: green;
+}

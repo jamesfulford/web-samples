@@ -84,19 +84,21 @@ Exercises and Projects in *this repo* exhibit these skills:
 ### CSS
 
 * CSS Box Model
-* Common (and less common) attributes
+* Common (and less common) CSS values
 * Selectors (common and beyond)
+* Fonts, Google Fonts
 * (More HTML)
 
 ### HTML
 
-* HTML Forms
+* Forms
     * Validation
     * Labels (Accessibility)
     * Interaction
         * Action="/search"
         * Method="[GET|POST]"
     * Inputs
+* Tables
 
 ## Miscellaneous
 
