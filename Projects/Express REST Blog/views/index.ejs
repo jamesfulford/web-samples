@@ -1,0 +1,24 @@
+<% include partials/header %>
+
+            <h1>Index Page</h1>
+
+<% blogs.forEach(function(blog) { %>
+
+<div class="ui huge header"><%= blog.title %></div>
+    <div class="ui top attachment">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= blog.image %>" />
+            <div class="content">
+                <p>Created <%= blog.created.toDateString() %></p>
+            </div>
+            <div class="description">
+                <p>
+                    <%- blog.body.substring(0, 140) %>...
+                    <a href="/blogs/<%= blog._id %>" class="">Read More</a>
+                </p>
+            </div>
+        </div>
+    </div>
+<% }); %>
+
+<% include partials/footer %>
