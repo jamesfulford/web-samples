@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Rotating Selector
+    </title>
+</head>
+<body>
+
+    <form action="" method="GET">
+        <!-- We'll see the names in the query string -->
+        <label for="redeem">Redeem Your</label>
+        <select class="rotate" name="redeem" id="redeem" required>
+            <option value="website" selected>Website</option>
+            <option value="social">Social Media</option>
+            <option value="tithing">Online Tithing</option>
+            <option value="app">App</option>
+            <option value="presence">Online Presence</option>
+        </select>
+        <br>
+        <label for="build">Build Your</label>
+        <select class="rotate" name="build" id="build" required>
+            <option value="website" selected>Website</option>
+            <option value="social">Social Media Campaigns</option>
+            <option value="attendance">Weekly Attendance</option>
+            <option value="app">App</option>
+            <option value="presence">Online Presence</option>
+        </select>
+        <br>
+        <button>Submit</button>
+    </form>
+
+
+    <!--  -->
+    <!-- Javascript -->
+    <!--  -->
+
+        <!-- jQuery 3.2.1 -->
+        <script
+        src="http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        //
+        // Causes all selects with class rotate
+        // to cycle their selection through all options
+        // until the user selects one
+        //
+        setInterval(function() {
+            var rotaters = $(".rotate");
+            for(var i = 0; i < rotaters.length; i++) {
+                var rotater = $(rotaters[i])
+                if(!rotater.attr("data-rotating") && !rotater.attr("data-focused")) {
+                    var options = rotater.find("option");
+                    var current = rotater.find("option:selected");
+                    var index = (current.index() + 1) % options.length;
+                    // sets new current to next (will set past current to false)
+                    $(options[index]).prop("selected", 1);
+                }
+            }
+        }, 1700);
+
+        $("select.rotate").on("change", function() {
+            // stop rotating
+            $(this).attr("data-rotating", 0);
+        })
+
+        $("select.rotate").on("focus", function() {
+            // stop rotating when focused
+            $(this).attr("data-focused", 0);
+        })
+
+        $("select.rotate").on("focusout", function() {
+            // allow rotating if unfocused and no change registered
+            if($(this).attr("data-focused")) {
+                $(this).attr("data-focused", "");
+            }
+        })
+    </script>
+</body>
+</html>
