@@ -7,8 +7,9 @@ Exercises and Projects in *this repo* exhibit these skills:
 
 ## Back End Development
 
-### Express
+### Node and Express
 
+* RESTful Routing
 * Request parameters
     * .body (body-parser)
     * .query
@@ -18,9 +19,6 @@ Exercises and Projects in *this repo* exhibit these skills:
     * Path/Route variables
     * Splat (asterisk)
     * post, get
-
-### Node
-
 * Mongoose
   * Models, CRUD
   * Connect with MongoDB
