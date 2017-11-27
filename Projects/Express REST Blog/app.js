@@ -62,6 +62,17 @@ app.get("/blogs/:id", function(req, res) {
         }
     });
 });
+app.get("/blogs/:id/edit", function(req, res) {
+    Blog.findById(req.params.id, function(err, blog) {
+        if(err) {
+            res.redirect("/blogs");
+        } else {
+            res.render("edit", blog);
+        }
+
+    });
+    res.render("edit");
+});
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Blog is up!");
