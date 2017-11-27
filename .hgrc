@@ -1,0 +1,12 @@
+# example user config (see "hg help config" for more info)
+[ui]
+# name and email, e.g.
+# username = Jane Doe <jdoe@example.com>
+username = jamesfulford <jfulford@bitbucket.org>
+
+[auth]
+bb.prefix = https://bitbucket.org/jamesfulford
+bb.username = jamesfulford
+
+[paths]
+default = https://bitbucket.org/jamesfulford/small-task-portfolio
