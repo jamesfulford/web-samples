@@ -1,24 +1,38 @@
 <% include partials/header %>
 
-            <h1>Index Page</h1>
+<div class="ui huge header">Index Page</div>
+<div class="ui divided items">
 
-<% blogs.forEach(function(blog) { %>
+    <% blogs.forEach(function(blog) { %>
 
-<div class="ui huge header"><%= blog.title %></div>
-    <div class="ui top attachment">
-        <div class="item">
+
+    <div class="item">
+        <div class="image">
             <img class="ui centered rounded image" src="<%= blog.image %>" />
-            <div class="content">
-                <p>Created <%= blog.created.toDateString() %></p>
+        </div>
+        <div class="content">
+            <a href="/blogs/<%= blog._id %>" class="header">
+                <%= blog.title %>
+            </a>
+            <div class="meta">
+                <span>Created <%= blog.created.toDateString() %></span>
             </div>
             <div class="description">
-                <p>
-                    <%= blog.body.substring(0, 140) %>...
-                    <a href="/blogs/<%= blog._id %>" class="">Read More</a>
-                </p>
+                <%- blog.body.substring(0, 140) %>...
+                <br>
+                <a href="/blogs/<%= blog._id %>" class="ui floated basic green button">
+                    Read More
+                    <i class="right chevron icon"></i>
+                </a>
             </div>
         </div>
     </div>
-<% }); %>
+    <% }); %>
+
+
+
+</div>
+
+
 
 <% include partials/footer %>
