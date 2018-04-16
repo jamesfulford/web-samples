@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="app4" ng-cloak>
+<head>
+    <title>AngularJS Tutorial</title>
+    <style type="text/css">
+        /* Angular Cloaking Device
+        All selected elements will remain undisplayed until
+        AngularJS loads
+        */
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .stripedblue {
+            color: #007FFF;
+            background-color:#DBE9F4;
+        }
+
+        .stripedbeige {
+            color: #CC0000;
+            background-color: #F5F5DC;
+        }
+    </style>
+</head>
+<body>
+
+
+<div ng-controller="eventCtrl">
+
+
+
+<table>
+    <tr ng-repeat="c in capitals" ng-class-even="'blue'" ng-class-odd="'stripedblue'">
+    <td>{{c.city}}</td><td>{{c.state}}</td>
+    </tr>
+</table>
+
+
+
+<p>
+<select ng-model="textStyling">
+    <option value="blue">Blue</option>
+    <option value="bold">Bold</option>
+    <option value="stripedblue">Stripedblue</option>
+    <option value="stripedbeige">Stripedbeige</option>
+</select>
+</p>
+
+<p ng-class="textStyling">Hello World</p>
+
+
+
+<p><input type="checkbox" ng-model="dayTimeButton">Morning</p>
+
+<p ng-hide="!dayTimeButton">Good Morning</p>
+<p ng-hide="dayTimeButton">Good Evening</p>
+
+
+
+<p><button ng-disabled="disableButton">Button</button></p>
+<p><input type="checkbox" ng-model="disableButton"></input></p>
+
+
+
+
+<input type="text" name="" ng-blur="blur = blur + 1" ng-keydown="keyDownHandler($event)"></input>
+<h4 ng-bind="blur"></h4>
+<h4 ng-bind="kdkey"></h4>
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+<!-- Load the JS Module -->
+<script src="js/example4.js"></script>
+
+</body>
+</html>

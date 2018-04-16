@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="app3" ng-cloak>
+<head>
+    <title>AngularJS Tutorial</title>
+    <style type="text/css">
+        /* Angular Cloaking Device
+        All selected elements will remain undisplayed until
+        AngularJS loads
+        */
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div ng-controller="gListController">
+    <h3 class="ListTitle">{{groceries.length}} items purchased</h3>
+
+    <ol>
+        <li>{{groceries[0].item}}</li>
+    </ol>
+
+    <ol start=2>
+        <li ng-repeat="g in groceries" ng-if="$index > 0">
+            {{g.item}} {{$index + 1}}
+        </li>
+    </ol>
+
+    <table>
+        <tr ng-repeat-start="grocery in groceries">
+            <td>{{grocery.item}}</td>
+        <tr ng-repeat-end>  <!-- doesnt need to be in ng-repeat-->
+            <td>{{grocery.purchased}}</td>
+        </tr>
+    </table>
+
+    <input type="text" ng-model="groceries[0].item"></tr>
+
+
+
+
+    <h3>Grocery List</h3>
+
+    <div ng-include="'unordered.html'"></div>
+
+    <label>
+        Show ordered list
+        <input type="checkbox" ng-model="showList"></input>
+    </label>
+
+    <ng-include src="getList()" scope="" onload=""></ng-include>
+
+    <label>
+        Input 1-4
+        <input type="text" ng-model="number"></input>
+    </label>
+
+    <div ng-switch="number">
+        <p ng-switch-when="1">You picked 1</p>
+        <p ng-switch-when="2">You picked 2</p>
+        <p ng-switch-when="3">You picked 3</p>
+        <p ng-switch-when="4">You picked 4</p>
+        <p ng-switch-default="1">I said 1-4</p>
+    </div>
+
+
+
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+<!-- Load the JS Module -->
+<script src="js/example3.js"></script>
+
+</body>
+</html>

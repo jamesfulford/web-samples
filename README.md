@@ -10,19 +10,26 @@ Exercises and Projects in *this repo* exhibit these skills:
 ### Node and Express
 
 * RESTful Routing
+    * Index, Show, New, Create, Edit, Update, Delete
+    * Model.find(queryObject, function(err, foundItems))
+    * Model.findById(id, function(err, foundItem))
+    * Model.findByIdAndUpdate(id, updatedItem, function(err, updatedItemInDB))
+    * Model.findByIdAndDelete(id, function(err))
 * Request parameters
+    * .sanitize (function) (express-sanitizer)
     * .body (body-parser)
-    * .query
+    * .params
 * Rendering responses
     * ejs
-* Routes, Endpoints, and Matching Precedence
+* Requests, Routes, and Matching Precedence
+    * method-override
     * Path/Route variables
     * Splat (asterisk)
     * post, get
 * Mongoose
   * Models, CRUD
   * Connect with MongoDB
-* Request
+* Request package
 * NPM
     * packages.json
     * --save flag
