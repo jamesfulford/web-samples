@@ -1,0 +1,133 @@
+<html>
+	<body>
+		<h1>HELLO WORLD!</h1>
+		<div id="displayRegion" visibility="visible">
+			<p id="displayArea"/>
+			<p id="authorsDisplayArea"> </p>
+			<p id="yearDisplay"/>
+			<p id="priceDisplay"/>
+		</div>
+		
+		
+		<button type="button" onclick="displayBook( askForNumber(1, allBooks.length) )">Display Book</button>
+		<ol id="highlord" />
+		
+		
+		<script>
+			//		REQUEST XML DOM
+var xPlease = new XMLHttpRequest(); //assumes not IE 5/6
+xPlease.open("GET", "books.xml", false);
+xPlease.send();
+var theDOM = xPlease.responseXML;	
+var allBooks = theDOM.getElementsByTagName("book"); //gets all the books
+
+			//		LIST ALL BOOK TITLES
+var theListNode = document.getElementById("highlord");
+for( var i = 0; i < allBooks.length; i++ ){ //for every book in our nodelist
+	var title = allBooks[i].childNodes[1].childNodes[0].nodeValue;
+	
+	var listItem = document.createElement("li");
+	listItem.appendChild( document.createTextNode( title ) );
+	theListNode.appendChild( listItem );
+}
+
+			//		RETURNS A NUMBER IN RANGE
+function askForNumber(lowerlimit, upperlimit){
+	var userInput = prompt("Please enter a number between " + lowerlimit + " and " + upperlimit + ", inclusive.");
+	var userNumber = Number(userInput);
+	if(isNaN(userNumber)){
+		alert("That was not a number. Please try again.")
+		return askForNumber(lowerlimit, upperlimit);
+	} 
+	if(userNumber <= lowerlimit-1){
+		alert("That number was too low. Please try again.")
+		return askForNumber(lowerlimit, upperlimit);
+	}
+	if(userNumber >= upperlimit+1){
+		alert("That number was too high. Please try again.")
+		return askForNumber(lowerlimit, upperlimit);
+	}
+	return userNumber;
+}
+
+
+			//		DISPLAYS NUMBER. 
+//Should be called: displayBook( askForNumber(1, allBooks.length) )
+function displayBook(inputNumber){
+
+	var xPlease = new XMLHttpRequest(); //assumes not IE 5/6
+	xPlease.open("GET", "books.xml", false);
+	xPlease.send();
+	var theDOM = xPlease.responseXML;
+	var allBooks = theDOM.getElementsByTagName("book"); //gets all the books
+	
+	
+										//		PICKING THE BOOK
+										var bookOfInquiry = allBooks[  inputNumber-1  ];
+
+
+	
+			
+				//		TITLE DISPLAY AREA
+	var titleDisplayNode = document.getElementById("displayArea");
+	titleDisplayNode.innerHTML = "";
+				//		TITLE
+	var selectedTitle = bookOfInquiry.getElementsByTagName("title");
+	for(var i = 0; i < selectedTitle.length; i++){
+		var title = selectedTitle[i].childNodes[0].nodeValue;
+		
+		var strong = document.createElement("strong");
+		strong.appendChild( document.createTextNode("Title: " + title) );
+		titleDisplayNode.appendChild( strong );
+	}
+	
+	
+
+				//		AUTHOR DISPLAY AREA
+	var authorDisplayNode = document.getElementById("authorsDisplayArea");
+	authorDisplayNode.innerHTML = "by:<br/>";
+	var authorBoat = document.createElement("ul");
+				//		AUTHORS
+	var selectedAuthors = bookOfInquiry.getElementsByTagName("author");
+	for(var i = 0; i < selectedAuthors.length; i++){
+		var author = selectedAuthors[i].childNodes[0].nodeValue;
+		
+		var listItem = document.createElement("li");
+		listItem.appendChild( document.createTextNode(author) );
+		authorBoat.appendChild( listItem );
+	}
+	
+	authorDisplayNode.appendChild( authorBoat );
+	
+	
+				//		YEAR DISPLAY AREA
+	var yearDisplayNode = document.getElementById("yearDisplay");
+	yearDisplayNode.innerHTML = "";
+				//		YEAR
+	var selectedYear = bookOfInquiry.getElementsByTagName("year");
+	for(var i = 0; i < selectedYear.length; i++){
+		var year = selectedYear[i].childNodes[0].nodeValue;
+		
+		yearDisplayNode.appendChild( document.createTextNode("Year: " + year) );
+	}
+	
+	
+	
+				//		YEAR DISPLAY AREA
+	var priceDisplayNode = document.getElementById("priceDisplay");
+	priceDisplayNode.innerHTML = "";
+				//		YEAR
+	var selectedPrice = bookOfInquiry.getElementsByTagName("price");
+	for(var i = 0; i < selectedPrice.length; i++){
+		var price = selectedPrice[i].childNodes[0].nodeValue;
+		
+		priceDisplayNode.appendChild( document.createTextNode("Price: $" + price) );
+	}
+	
+	
+	document.getElementById("displayRegion").style.visibility = "visible";
+
+}
+		</script>
+	</body>
+</html>
