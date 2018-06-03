@@ -1,0 +1,48 @@
+DOM - tree, node, and root | singleParent-manyChildren representation of mark-up languages
+	HTML - very specific restricitons on DOM
+	XML - general DOM.
+
+//selecting tags
+document.getElementById(
+document.getElementByTagName(
+document.getElementByClassName(
+
+//accessing and updating
+.nodeType //type node is (attribute, element, #text or #document)
+.nodeValue
+
+.innerHTML //content of HTML tag
+.attribute //value of attribute
+.setAttribute(attribute, value) //another way to change the attribute
+.style.#property!# //style of tag, like .style.color = "blue";
+
+
+document.createElement(element) //not sure exactly how this works - how to construct element?
+document.removeChild(
+element.appendChild( //gives this element another child element
+document.replaceChild(
+
+getElementsByTagName() //returns node list
+
+
+document.getElementById(id).onclick = function() {
+	//code that occurs when objects with id = id clicked on. EVENT HANDLER
+}
+
+
+
+xmlhttp = new XMLHttpRequest(); //for IE7+, all modern browsers
+xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); //for IE6, IE5
+
+xmlhttp.open("GET", "books.xml", false); //false because not asynchronous
+xmlhttp.send(); //send the request, put data in responseXML attribute of xmlhttp instance of XMLHttpRequest object
+var xmlDoc = xmlhttp.responseXML;
+
+OR
+
+var xmlDoc = loadXMLDoc("books.xml");
+
+
+
+
+ 

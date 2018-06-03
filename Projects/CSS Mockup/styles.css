@@ -1,0 +1,58 @@
+
+
+body {
+    background-color: rgb(2, 6, 14);
+}
+
+#site-container {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Header */
+#header-nav {
+    border-width: 0;
+}
+nav div {
+    padding: 15px;
+    text-transform: uppercase;
+}
+.nav-button {
+    padding: 30px;
+}
+
+#nav-brand {
+    background-color: rgb(245, 245, 245);
+}
+#nav-about {
+    background-color: rgb(15, 22, 38);
+}
+#nav-gallery {
+    background-color: rgb(171, 152, 122);
+}
+#nav-contact {
+    background-color: rgb(255, 83, 61);
+}
+
+
+
+#content {
+    margin-top: 200px;
+}
+#front-statement {
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(245, 245, 245);
+}
+#front-statement h1 {
+    font-size: 60px;
+    font-family: Futura;
+    letter-spacing: 1px;
+}
+#front-statement hr {
+    width: 360px;
+}
+p {
+    letter-spacing: 4px;
+}
