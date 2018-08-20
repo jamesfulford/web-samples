@@ -108,6 +108,18 @@ Exercises and Projects in *this repo* exhibit these skills:
     * Inputs
 * Tables
 
+## Mobile Development
+
+### Cordova
+* Android Emulator
+
+### React Native
+* React + JSX
+* iOS Emulator
+* Debugger
+* Front-end
+
+
 ## Miscellaneous
 
 * Mercurial
