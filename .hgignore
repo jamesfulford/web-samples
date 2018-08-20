@@ -1,7 +1,9 @@
 .*\/node_modules\/.+
+.*\/build\/.+
 
 syntax: glob
 *.mp3
 *.ogg
 *.c9/*
 *.DS_Store
+
