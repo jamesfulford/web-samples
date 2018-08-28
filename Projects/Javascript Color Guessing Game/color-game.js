@@ -8,24 +8,24 @@ var DEFAULT_BANNER = "steelblue";
 //
 // Color generation and choice
 function rand255() {
-	return Math.floor(Math.random() * 255)
+	return Math.floor(Math.random() * 255);
 }
 function randRGB() {
 	var col = "rgb(";
 	col += rand255() + ", ";
 	col += rand255() + ", ";
 	col += rand255() + ")";
-	return col
+	return col;
 }
 function makeColors(number) {
-	var colors = []
+	var colors = [];
 	for(var i = 0; i < number; i++) {
 		colors.push(randRGB());
 	}
 	return colors;
 }
 function pickGoal() {
-	var randNum = Math.floor(Math.random() * colors.length)
+	var randNum = Math.floor(Math.random() * colors.length);
 	return colors[randNum];
 }
 // Global Game Constants
@@ -45,8 +45,8 @@ var topBanner = document.querySelector("h1");
 
 var stripeButtons = document.querySelectorAll("div#stripe button");
 
-var easyButton = document.querySelectorAll("#stripe button")[1]
-var hardButton = document.querySelectorAll("#stripe button")[2]
+var easyButton = document.querySelectorAll("#stripe button")[1];
+var hardButton = document.querySelectorAll("#stripe button")[2];
 
 // IO Functions
 function win() {
@@ -58,7 +58,7 @@ function win() {
 	topBanner.style.backgroundColor = goalColor;
 
 	// Ask to play again
-	newGameButton.textContent = "Play Again?"
+	newGameButton.textContent = "Play Again?";
 }
 function setView() {
 	//
@@ -86,7 +86,7 @@ function setView() {
 			// If not enough colors
 			squares[i].style.display = "none";
 		}
-		
+
 	}
 }
 function displayMessage(message) {
@@ -115,7 +115,7 @@ function init() {
 				win();
 			} else {
 				this.style.backgroundColor = DEFAULT_BACKGROUND;
-				displayMessage("Try Again")
+				displayMessage("Try Again");
 			}
 		});
 	}
