@@ -48,7 +48,7 @@ div#stripe button {
 
 	background: none;
 
-	text-transform: uppercase;	
+	text-transform: uppercase;
 	font-weight: bold;
 	color: steelblue;
 	font-size: 1.1em;
@@ -60,7 +60,7 @@ div#stripe button {
 	-moz-transition: all 0.2s;
 }
 div#stripe button:hover {
-	color: white;
+	color: lightskyblue;
 	background-color: steelblue;
 }
 div#stripe  .selected {
