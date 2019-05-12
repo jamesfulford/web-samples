@@ -59,7 +59,7 @@ Exercises and Projects in *this repo* exhibit these skills:
 * (More CSS)
 * (Some HTML)
 
-### Basic Javascript
+### Vanilla Javascript
 
 * DOM Manipulation (sans jQuery)
     * Event Listeners
