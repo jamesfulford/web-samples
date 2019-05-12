@@ -7,7 +7,7 @@ Exercises and Projects in *this repo* exhibit these skills:
 
 ## Back End Development
 
-### Node and Express
+### Node, Express
 
 * RESTful Routing
     * Index, Show, New, Create, Edit, Update, Delete
@@ -29,10 +29,8 @@ Exercises and Projects in *this repo* exhibit these skills:
 * Mongoose
   * Models, CRUD
   * Connect with MongoDB
-* Request package
+* API requests
 * NPM
-    * packages.json
-    * --save flag
 
 ## Front End Development
 
@@ -63,8 +61,7 @@ Exercises and Projects in *this repo* exhibit these skills:
 
 ### Basic Javascript
 
-* MVC (Model-View-Controller) Design Pattern
-* DOM Manipulation (without jQuery)
+* DOM Manipulation (sans jQuery)
     * Event Listeners
     * Basic manipulation
     * Selectors
@@ -83,6 +80,10 @@ Exercises and Projects in *this repo* exhibit these skills:
 
 ### Bootstrap
 
+* Bootstrap 4
+    * Flex grid
+    * Card components
+    * Margin/padding utilities
 * Responsiveness/Responsive Design
     * Grid System
     * Navbars
@@ -114,14 +115,10 @@ Exercises and Projects in *this repo* exhibit these skills:
 * Android Emulator
 
 ### React Native
-* React + JSX
+* React + JSX syntax
 * iOS Emulator
 * Debugger
-* Front-end
-
 
 ## Miscellaneous
 
-* Mercurial
-    * .hgignore
-    * hgrc
+* Mercurial (this repo was ported over to Git)
