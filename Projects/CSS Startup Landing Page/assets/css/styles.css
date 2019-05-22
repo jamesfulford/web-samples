@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    font: normal 1rem sans-serif;
+    color: #555;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    opacity: 0.75;
+    color: white;
+}
+a:hover {
+    opacity: 1;
+}
+
+a.btn {
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    background-color: #3f51b5;
+    opacity: 1;
+}
+ul {
+    list-style: none;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 4rem;
+}
+
+/* Header */
+header.header {
+    font-size: 1.5rem;
+
+    padding: 2rem 3rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    opacity: 0;
+    animation: 1s fade-in 0.5s forwards;
+
+    z-index: 1;
+}
+@keyframes fade-in {
+    100% {
+        opacity: inherit;
+    }
+}
+header.header nav.links {
+    display: flex;
+	margin-right: -1rem;
+}
+header.header nav.links li {
+    margin: 0 1rem;
+}
+header.header .title {
+    font-family: "Quicksand", sans-serif;
+    margin: 0;
+}
+
+/* Main section */
+.hero {
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+}
+.hero .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    z-index: -1;
+    background-color: #80a3db;
+}
+.hero .hero-content {
+    margin-top: 35vh;
+    opacity: 0;
+    animation: 1s slide-fade 1s forwards;
+}
+@keyframes slide-fade {
+    100% {
+        opacity: 1;
+        margin-top: 30vh;
+    }
+}
+.hero-content h1 {
+    font: bold 4rem "Open Sans", sans-serif;
+    margin-bottom: 1rem;
+}
+.hero-content h3 {
+    font: normal 1.5rem "Open Sans", sans-serif;
+    margin-bottom: 2.5rem;
+}
+.hero-content a.btn {
+    padding: 1.25rem 2.75rem;
+}
+/* .hero .hero-content a {
+    width: 10rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+
+    font-size: 1rem;
+
+    background-color: darkblue;
+    color: white;
+    text-decoration: none;
+} */
+
+.second {
+    margin-top: 10rem;
+}
+.second h3 {
+    text-transform: uppercase;
+    font: bold 2rem "Open Sans", sans-serif;
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+.second p {
+    line-height: 2;
+    text-align: center;
+
+    max-width: 48.5rem;
+    padding: 0 1.25rem;
+    margin-bottom: 1.25rem;
+}
+.second hr {
+    margin-bottom: 3rem;
+    width: 15%;
+    height: .25rem;
+    background-color: #3f51b5;
+    border: 0;
+}
+.second .gallery {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.second .gallery li {
+    height: 20rem;
+    padding: 1.25rem;
+    background-clip: content-box;
+    background-size: cover;
+    background-position: center;
+}
+.second .gallery li.small {
+    flex-basis: 30%;
+}
+.second .gallery li.large {
+    flex-basis: 70%;
+}
