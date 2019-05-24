@@ -209,3 +209,24 @@ p.author {
     margin-right: 2.5rem;
     flex: 1;
 }
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #607d8b;
+    color: white;
+    padding: 1.25rem;
+}
+footer p {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    opacity: 0.6;
+    align-self: center;
+}
+footer ul {
+    display: flex;
+}
+footer ul li {
+    margin-left: 1rem;
+}
