@@ -46,6 +46,11 @@ section {
     align-items: center;
     padding: 5rem 4rem;
 }
+@media screen and (max-width: 800px) {
+    section {
+        padding: 2.5rem 1.25rem;
+    }
+}
 section:not(.hero):nth-child(even) {
     background-color: #f5f5f5;
 }
@@ -109,6 +114,15 @@ header.header .title {
     font-family: "Quicksand", sans-serif;
     margin: 0;
 }
+@media screen and (max-width: 800px) {
+    header {
+        padding: 1.25rem 3rem;
+        flex-direction: column;
+    }
+    header .title {
+        margin-bottom: 1rem;
+    }
+}
 
 /* Main section */
 .hero {
@@ -150,6 +164,20 @@ header.header .title {
 .hero-content a.btn {
     padding: 1.25rem 2.75rem;
 }
+@media screen and (max-width: 800px) {
+    .hero {
+        min-height: 35rem;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content h3 {
+        font-size: 1rem;
+    }
+    .hero-content a.btn {
+        padding: 1rem 2.5rem;
+    }
+}
 
 /* Second section */
 .second hr {
@@ -168,6 +196,18 @@ header.header .title {
 .second .gallery li.large {
     flex-basis: 70%;
 }
+@media screen and (max-width: 1100px) {
+    .second .gallery li.small,
+    .second .gallery li.large {
+        flex-basis: 50%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .second .gallery li.small,
+    .second .gallery li.large {
+        flex-basis: 100%;
+    }
+}
 
 /* Third section */
 .third .gallery li {
@@ -182,6 +222,12 @@ header.header .title {
     font-size: 2rem;
     margin: 1.5rem 0;
 }
+@media screen and (max-width: 800px) {
+    .third .gallery li {
+        flex-basis: 100%;
+        padding: 1.5rem;
+    }
+}
 
 /* Fourth section */
 p.quote {
@@ -193,7 +239,17 @@ p.quote {
 p.author {
     font-style: italic;
 }
+@media screen and (max-width: 800px) {
+    p.quote {
+        font-size: 1rem;
+        margin: 1.5rem 0 1rem;
+    }
+    p.author {
+        font-size: 0.875rem;
+    }
+}
 
+/* Fifth section */
 .fifth form {
     margin-top: 2.5rem;
     display: flex;
@@ -209,6 +265,12 @@ p.author {
     padding: 1rem;
     margin-right: 2.5rem;
     flex: 1;
+}
+@media screen and (max-width: 1000px) {
+    .fifth form input {
+        flex-basis: 100%;
+        margin: 0 0 1.25rem 0; /* All margin except bottom */
+    }
 }
 
 footer {
@@ -231,4 +293,16 @@ footer ul {
 }
 footer ul li {
     margin-left: 1rem;
+}
+@media screen and (max-width: 1100px) {
+    footer {
+        flex-direction: column;
+    }
+    footer p {
+        text-align: center;
+        margin-bottom: 1.25rem;
+    }
+    footer ul li i {
+        margin: 0 .5rem;
+    }
 }
