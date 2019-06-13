@@ -17,19 +17,19 @@ export default class App extends Component {
           img: logo,
           instructions: "Mix well",
           ingredients: ['a', 'b'],
-          title: 'Test',
+          title: 'Test 1',
         }, {
           id: 1,
           img: logo,
           instructions: "Mix well",
           ingredients: ['a', 'b'],
-          title: 'Test',
+          title: 'Test 2',
         }, {
           id: 2,
           img: logo,
           instructions: "Mix well",
           ingredients: ['a', 'b'],
-          title: 'Test',
+          title: 'Test 3',
         },
       ],
     };
@@ -48,6 +48,7 @@ export default class App extends Component {
                   this.setState({
                     recipes: [...this.state.recipes, { ...recipe, id: this.state.nextRecipeId }],
                     nextRecipeId: this.state.nextRecipeId + 1,
+                    showForm: false,
                   });
                 }}
                 onClose={() => {
@@ -58,6 +59,11 @@ export default class App extends Component {
         }
         <RecipeList
           recipes={this.state.recipes}
+          onDelete={(id) => {
+            this.setState({
+              recipes: this.state.recipes.filter(r => r.id !== id),
+            });
+          }}
         />
       </>
     );

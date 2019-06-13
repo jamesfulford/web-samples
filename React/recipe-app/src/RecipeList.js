@@ -13,9 +13,11 @@ export default class RecipeList extends Component {
             ingredients: PropTypes.arrayOf(PropTypes.string),
             img: PropTypes.string,
         })),
+        onDelete: PropTypes.func,
     }
     static defaultProps = {
         recipes: [],
+        onDelete: () => {},
     };
 
     render() {
@@ -23,7 +25,9 @@ export default class RecipeList extends Component {
             <div className="recipe-list">
                 {
                     this.props.recipes.map(r => (
-                        <Recipe key={r.id} {...r}></Recipe>
+                        <Recipe key={r.id} {...r} onDelete={() => {
+                            this.props.onDelete(r.id);
+                        }}></Recipe>
                     ))
                 }
             </div>

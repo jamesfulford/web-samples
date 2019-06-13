@@ -8,9 +8,11 @@ export default class Recipe extends Component {
         instructions: PropTypes.string.isRequired,
         ingredients: PropTypes.arrayOf(PropTypes.string),
         img: PropTypes.string,
+        onDelete: PropTypes.func,
     };
     static defaultProps = {
         ingredients: [],
+        onDelete: () => {},
     };
 
     render () {
@@ -32,6 +34,9 @@ export default class Recipe extends Component {
                     <p>
                         {instructions}
                     </p>
+                    <button type="button" onClick={() => {
+                        this.props.onDelete();
+                    }}>Delete</button>
                 </div>
             </div>
         )
