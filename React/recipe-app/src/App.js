@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import Recipe from './Recipe';
+import Navbar from './Navbar';
 
 function App() {
   const recipes = [
@@ -22,7 +23,8 @@ function App() {
     },
   ];
   return (
-
+    <>
+    <Navbar></Navbar>
     <div className="App">
       {
         recipes.map(r => (
@@ -30,6 +32,7 @@ function App() {
         ))
       }
     </div>
+    </>
   );
 }
 

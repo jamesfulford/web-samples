@@ -1,0 +1,18 @@
+import React, { Component } from 'react';
+import './Navbar.css';
+
+export default class Navbar extends Component {
+    render() {
+        return (
+            <header>
+                <h2>Recipe App</h2>
+                <nav>
+                    <li><a>New Recipe</a></li>
+                    <li><a>Home</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Contact Us</a></li>
+                </nav>
+            </header>
+        )
+    }
+}
