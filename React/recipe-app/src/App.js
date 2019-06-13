@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import RecipeList from './RecipeList';
 import Navbar from './Navbar';
+import RecipeInput from './RecipeInput';
 
 import logo from './logo.svg';
 
@@ -36,6 +37,7 @@ export default class App extends Component {
     return (
       <>
         <Navbar></Navbar>
+        <RecipeInput />
         <RecipeList recipes={this.state.recipes}/>
       </>
     );
