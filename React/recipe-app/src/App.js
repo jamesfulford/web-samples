@@ -9,8 +9,16 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showForm: false,
+      nextRecipeId: 3,
       recipes: [
         {
+          id: 0,
+          img: logo,
+          instructions: "Mix well",
+          ingredients: ['a', 'b'],
+          title: 'Test',
+        }, {
           id: 1,
           img: logo,
           instructions: "Mix well",
@@ -18,12 +26,6 @@ export default class App extends Component {
           title: 'Test',
         }, {
           id: 2,
-          img: logo,
-          instructions: "Mix well",
-          ingredients: ['a', 'b'],
-          title: 'Test',
-        }, {
-          id: 3,
           img: logo,
           instructions: "Mix well",
           ingredients: ['a', 'b'],
@@ -36,9 +38,27 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Navbar></Navbar>
-        <RecipeInput />
-        <RecipeList recipes={this.state.recipes}/>
+        <Navbar triggerShowForm={() => {
+          this.setState({ showForm: true });
+        }}/>
+        {
+          this.state.showForm
+            ? <RecipeInput
+                onSave={(recipe) => {
+                  this.setState({
+                    recipes: [...this.state.recipes, { ...recipe, id: this.state.nextRecipeId }],
+                    nextRecipeId: this.state.nextRecipeId + 1,
+                  });
+                }}
+                onClose={() => {
+                  this.setState({ showForm: false });
+                }}
+              />
+            : null
+        }
+        <RecipeList
+          recipes={this.state.recipes}
+        />
       </>
     );
   }

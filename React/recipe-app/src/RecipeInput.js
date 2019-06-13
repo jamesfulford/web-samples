@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 import './RecipeInput.css';
 
 export default class RecipeInput extends Component {
     static defaultProps = {
         onClose: () => {},
+        onSave: () => {},
+    };
+    static propTypes = {
+        onClose: PropTypes.func,
+        onSave: PropTypes.func,
     };
 
     constructor(props) {
@@ -11,12 +17,13 @@ export default class RecipeInput extends Component {
         this.state = {
             title: '',
             instructions: '',
-            ingredients: [],
+            ingredients: [''],
             img: '',
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleChangeIng = this.handleChangeIng.bind(this);
         this.handleNewIngredient = this.handleNewIngredient.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(e) {
@@ -38,6 +45,13 @@ export default class RecipeInput extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.props.onSave({ ...this.state });
+        this.setState({
+            title: '',
+            img: '',
+            instructions: '',
+            ingredients: [''],
+        });
     }
 
     render() {
@@ -70,7 +84,7 @@ export default class RecipeInput extends Component {
                         onClick={onClose}
                     >
                         X
-          </button>
+                    </button>
                     <div className='recipe-form-line'>
                         <label htmlFor='recipe-title-input'>Title</label>
                         <input
@@ -88,7 +102,7 @@ export default class RecipeInput extends Component {
                         style={{ marginTop: '5px' }}
                     >
                         Instructions
-          </label>
+                    </label>
                     <textarea
                         key='instructions'
                         id='recipe-instructions-input'
@@ -106,7 +120,7 @@ export default class RecipeInput extends Component {
                         className="buttons"
                     >
                         +
-          </button>
+                    </button>
                     <div className='recipe-form-line'>
                         <label htmlFor='recipe-img-input'>Image Url</label>
                         <input
@@ -125,7 +139,7 @@ export default class RecipeInput extends Component {
                         style={{ alignSelf: 'flex-end', marginRight: 0 }}
                     >
                         SAVE
-          </button>
+                    </button>
                 </form>
             </div>
         );
