@@ -1,37 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
-import Recipe from './Recipe';
+import RecipeList from './RecipeList';
 import Navbar from './Navbar';
 
 function App() {
-  const recipes = [
-    {
-      img: logo,
-      instructions: "Mix well",
-      ingredients: ['a', 'b'],
-      title: 'Test',
-    }, {
-      img: logo,
-      instructions: "Mix well",
-      ingredients: ['a', 'b'],
-      title: 'Test',
-    }, {
-      img: logo,
-      instructions: "Mix well",
-      ingredients: ['a', 'b'],
-      title: 'Test',
-    },
-  ];
   return (
     <>
     <Navbar></Navbar>
-    <div className="App">
-      {
-        recipes.map(r => (
-          <Recipe {...r}></Recipe>
-        ))
-      }
-    </div>
+    <RecipeList />
     </>
   );
 }
