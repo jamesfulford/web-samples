@@ -1,4 +1,5 @@
 import React from 'react';
+import './Card.css';
 
 export default function Card ({
     cardState,
@@ -10,9 +11,6 @@ export default function Card ({
             className="card"
             onClick={onClick}
             style={{
-                width: 40,
-                height: 40,
-                marginTop: 1,
                 backgroundColor: (cardState === 0) ? 'grey' : color,
             }}
         />

@@ -50,8 +50,21 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        {/* <header className="App-header">
-        </header> */}
+        <header className="App-header">
+          <button
+            style={{
+              alignSelf: 'flex-end',
+              marginRight: 32,
+            }}
+            onClick={() => {
+            const colors = getRandomColors();
+            this.setState({
+              globalState: -1,
+              colors,
+              cardStates: colors.map(x => 0),
+            });
+          }}>New Game</button>
+        </header>
         <div className="cards-list">
           {this.state.colors.map((color, i) => {
             const cardState = this.state.cardStates[i];
