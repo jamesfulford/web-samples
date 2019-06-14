@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Card.css';
 
 export default function Card ({
-    cardState,
+    show,
     color,
     onClick,
 }) {
@@ -11,8 +12,16 @@ export default function Card ({
             className="card"
             onClick={onClick}
             style={{
-                backgroundColor: (cardState === 0) ? 'grey' : color,
+                backgroundColor: show ? color : 'grey',
             }}
         />
     )
 }
+Card.propTypes = {
+    show: PropTypes.bool.isRequired,
+    color: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+};
+Card.defaultProps = {
+    onClick: () => {},
+};

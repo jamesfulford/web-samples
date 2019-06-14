@@ -68,7 +68,7 @@ class App extends Component {
         <div className="cards-list">
           {this.state.colors.map((color, i) => {
             const cardState = this.state.cardStates[i];
-            return (<Card cardState={cardState} color={color} onClick={() => {
+            return (<Card show={cardState !== 0} color={color} onClick={() => {
               if (cardState !== 0) {
                 this.setState({
                   // Hide unmatched cards
