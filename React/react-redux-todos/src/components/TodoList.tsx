@@ -1,22 +1,23 @@
 import React, { useState, SFC, FunctionComponent } from "react";
 import TodoItem from "./TodoItem";
-import { Todo } from "../todo.types";
+import { Todo, TodoId } from "../todo.types";
 
 import { connect } from "react-redux";
 import { ReducerState } from "../reducers/todos";
 import { addTodo, removeTodo } from "../actions/todos";
 
-const TodoList: FunctionComponent<{ todos: Todo[]; dispatch: Function }> = ({
-  todos,
-  dispatch
-}) => {
+const TodoList: FunctionComponent<{
+  todos: Todo[];
+  dispatchRemoveTodo: Function;
+  dispatchAddTodo: Function;
+}> = ({ todos, dispatchRemoveTodo, dispatchAddTodo }) => {
   const [text, setText] = useState<string>("");
   return (
     <>
       <form
         onSubmit={e => {
           e.preventDefault();
-          dispatch(addTodo({ name: text, completed: false }));
+          dispatchAddTodo({ name: text, completed: false });
           setText("");
         }}
       >
@@ -31,7 +32,7 @@ const TodoList: FunctionComponent<{ todos: Todo[]; dispatch: Function }> = ({
           return (
             <TodoItem
               onDelete={() => {
-                dispatch(removeTodo(todo.id));
+                dispatchRemoveTodo(todo.id);
               }}
               key={todo.id}
               name={todo.name}
@@ -44,4 +45,10 @@ const TodoList: FunctionComponent<{ todos: Todo[]; dispatch: Function }> = ({
   );
 };
 
-export default connect(({ todos }: ReducerState) => ({ todos }))(TodoList);
+export default connect(
+  ({ todos }: ReducerState) => ({ todos }),
+  dispatch => ({
+    dispatchAddTodo: (todo: Todo) => dispatch(addTodo(todo)),
+    dispatchRemoveTodo: (id: TodoId) => dispatch(removeTodo(id))
+  })
+)(TodoList);
