@@ -4,7 +4,7 @@ import { Todo } from "../todo.types";
 
 import { connect } from "react-redux";
 import { ReducerState } from "../reducers/todos";
-import { addTodo } from "../actions/todos";
+import { addTodo, removeTodo } from "../actions/todos";
 
 const TodoList: FunctionComponent<{ todos: Todo[]; dispatch: Function }> = ({
   todos,
@@ -30,6 +30,9 @@ const TodoList: FunctionComponent<{ todos: Todo[]; dispatch: Function }> = ({
         {todos.map((todo: Todo) => {
           return (
             <TodoItem
+              onDelete={() => {
+                dispatch(removeTodo(todo.id));
+              }}
               key={todo.id}
               name={todo.name}
               completed={todo.completed}
