@@ -1,7 +1,7 @@
 import { Todo, TodoId } from "../todo.types";
 import { TODO_ACTIONS } from "../actions/todos";
 
-interface ReducerState {
+export interface ReducerState {
   todos: Todo[];
   id: TodoId;
 }
