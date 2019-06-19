@@ -12,7 +12,7 @@ export const addTodo: ActionCreator<ITodo> = (todo: ITodo) => ({
   todo
 });
 
-export const removeTodo: ActionCreator<TodoId> = (id: TodoId) => ({
+export const removeTodo: ActionCreator<TodoId> = (_id: TodoId) => ({
   type: TODO_ACTIONS.REMOVE_TODO,
-  id
+  _id
 });

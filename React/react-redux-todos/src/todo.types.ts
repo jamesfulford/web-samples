@@ -6,5 +6,5 @@ export interface ITodo {
 export type TodoId = number;
 
 export interface Todo extends ITodo {
-  id: TodoId;
+  _id: TodoId;
 }

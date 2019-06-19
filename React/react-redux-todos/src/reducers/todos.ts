@@ -3,11 +3,9 @@ import { TODO_ACTIONS } from "../actions/todos";
 
 export interface ReducerState {
   todos: Todo[];
-  id: TodoId;
 }
 const initialState: ReducerState = {
   todos: [],
-  id: 0
 };
 interface Action {
   type: TODO_ACTIONS;
@@ -21,13 +19,12 @@ export default function todoReducer(
     case TODO_ACTIONS.ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos, { ...action.todo, id: state.id }],
-        id: state.id + 1
+        todos: [...state.todos, { ...action.todo }],
       };
     case TODO_ACTIONS.REMOVE_TODO:
       return {
         ...state,
-        todos: state.todos.filter(t => t.id !== action.id)
+        todos: state.todos.filter(t => t._id !== action._id)
       };
     default:
       return state;
