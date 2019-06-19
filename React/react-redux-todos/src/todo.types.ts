@@ -3,7 +3,7 @@ export interface ITodo {
   completed: boolean;
 }
 
-export type TodoId = number;
+export type TodoId = string;
 
 export interface Todo extends ITodo {
   _id: TodoId;

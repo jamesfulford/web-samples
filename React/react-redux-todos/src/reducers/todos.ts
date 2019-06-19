@@ -1,11 +1,11 @@
-import { Todo, TodoId } from "../todo.types";
+import { Todo } from "../todo.types";
 import { TODO_ACTIONS } from "../actions/todos";
 
 export interface ReducerState {
   todos: Todo[];
 }
 const initialState: ReducerState = {
-  todos: [],
+  todos: []
 };
 interface Action {
   type: TODO_ACTIONS;
@@ -19,12 +19,17 @@ export default function todoReducer(
     case TODO_ACTIONS.ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos, { ...action.todo }],
+        todos: [...state.todos, { ...action.todo }]
       };
     case TODO_ACTIONS.REMOVE_TODO:
       return {
         ...state,
         todos: state.todos.filter(t => t._id !== action._id)
+      };
+    case TODO_ACTIONS.GET_TODOS:
+      return {
+        ...state,
+        todos: [...state.todos, ...action.todos]
       };
     default:
       return state;
