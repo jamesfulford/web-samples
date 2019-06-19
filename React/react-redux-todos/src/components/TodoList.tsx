@@ -1,4 +1,4 @@
-import React, { useState, SFC, FunctionComponent } from "react";
+import React, { useState, FunctionComponent } from "react";
 import TodoItem from "./TodoItem";
 import { Todo, TodoId } from "../todo.types";
 

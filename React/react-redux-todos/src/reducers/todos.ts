@@ -24,13 +24,11 @@ export default function todoReducer(
         todos: [...state.todos, { ...action.todo, id: state.id }],
         id: state.id + 1
       };
-      break;
     case TODO_ACTIONS.REMOVE_TODO:
       return {
         ...state,
         todos: state.todos.filter(t => t.id !== action.id)
       };
-      break;
     default:
       return state;
   }
