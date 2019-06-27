@@ -1,8 +1,7 @@
 var minYear = d3.min(birthData, d => d.year);
+var maxYear = d3.max(birthData, d => d.year);
 var width = 600;
 var height = 600;
-var yearData = birthData.filter(d => d.year === minYear);
-
 
 var continents = [];
 birthData.forEach(d => {
@@ -22,20 +21,48 @@ d3.select('svg')
         .attr('transform', `translate(${width / 2}, ${height / 2})`)
         .classed('chart', true)
 
-var arcs = d3.pie()
-    .value(d => d.births)
-    (yearData)
 
-var path = d3.arc()
-    .outerRadius(width / 2 - 10)
-    .innerRadius(width / 6)
+d3.select('input')
+    .property('min', minYear)
+    .property('max', maxYear)
+    .property('value', minYear)
+    .on('input', () => drawGraph(+d3.event.target.value))
 
-d3.select('.chart')
-    .selectAll('.arc')
-    .data(arcs)
-    .enter()
-        .append('path')
-        .attr('d', path)
-        .classed('arc', true)
-        .attr('fill', d => colorScale(d.data.continent))
-        .attr('stroke', 'black')
+var arcs;
+var path;
+var yearData;
+
+function drawGraph (year) {
+    yearData = birthData.filter(d => d.year === year);
+    arcs = d3.pie().value(d => d.births)
+        .sort((a, b) => {
+            if (a.continent < b.continent) {
+                return -1;
+            } else if (a.continent > b.continent) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+    (yearData);
+
+    path = d3
+      .arc()
+      .outerRadius(width / 2 - 10)
+      .innerRadius(width / 6);
+
+    var update = d3.select(".chart")
+      .selectAll(".arc")
+      .data(arcs)
+
+    update.exit().remove();
+
+    update.enter()
+      .append("path")
+      .attr("d", path)
+      .classed("arc", true)
+      .attr("fill", d => colorScale(d.data.continent))
+      .attr("stroke", "black");
+
+}
+drawGraph(minYear);
