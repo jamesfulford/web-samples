@@ -27,6 +27,29 @@ var radiusScale = d3.scaleLinear()
     .domain(d3.extent(birthData2011, d => d.births))
     .range([2, 40]);
 
+
+var tooltip = d3.select('body')
+  .append('div')
+    .classed('tooltip', true);
+
+
+const hideTooltip = () => {
+  tooltip.style("opacity", 0);
+};
+
+const showTooltip = d => {
+  tooltip
+    .style("opacity", 0.7)
+    .style("left", `${d3.event.x - tooltip.node().offsetWidth / 2}px`)
+    .style("top", `${d3.event.y + 25}px`).html(`
+      <p><strong>${d.region}</strong></p>
+      <p>${d.births.toLocaleString()} births (2011)</p>
+      <p>${d.area.toLocaleString()} square miles</p>
+      <p>${d.lifeExpectancy.toLocaleString()} years average life expectancy</p>
+    `);
+};
+
+
 d3.select('svg')
     .append('g')
         .attr('transform', `translate(0, ${height - padding})`)
@@ -47,7 +70,11 @@ d3.select("svg")
   .attr("cx", d => xScale(d.births / d.population))
   .attr("cy", d => yScale(d.lifeExpectancy))
   .attr("fill", d => colorScale(d.population / d.area))
-  .attr("r", d => radiusScale(d.births));
+  .attr("r", d => radiusScale(d.births))
+  .on('mousemove', showTooltip)
+  .on('touchstart', showTooltip)
+  .on('mouseout', hideTooltip)
+  .on('touchend', hideTooltip);
 
 d3.select('svg')
     .append('text')
@@ -73,4 +100,3 @@ d3.select("svg")
   .attr("dy", "-1.1em")
   .style("text-anchor", "middle")
   .text("Life Expectancy");
-
