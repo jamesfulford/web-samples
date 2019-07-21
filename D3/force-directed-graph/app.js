@@ -33,21 +33,28 @@ const linkSelection = svg
     .attr('stroke-width', 1)
 
 var nodeSelection = svg
-                      .selectAll("circle")
-                      .data(nodes)
-                      .enter()
-                      .append("circle")
-                        .attr("r", d => d.size)
-                        .attr("fill", d => d.color);
+  .selectAll("circle")
+  .data(nodes)
+  .enter()
+  .append("circle")
+  .attr("r", d => d.size)
+  .attr("fill", d => d.color)
+  .call(
+    d3
+      .drag()
+      .on("start", dragStart)
+      .on("end", dragEnd)
+      .on("drag", drag)
+  );
 
 var simulation = d3.forceSimulation(nodes);
 
 simulation
   .force('center', d3.forceCenter(width / 2, height / 2))
-  .force('nodes', d3.forceManyBody().strength(-30))
+  .force('nodes', d3.forceManyBody().strength(-10))
   .force('links', d3.forceLink(links)
     .id(d => d.color)
-    .distance(300)
+    .distance(100)
   )
   .on('tick', () => {
     nodeSelection
@@ -60,3 +67,20 @@ simulation
       .attr("x2", d => d.target.x)
       .attr("y2", d => d.target.y);
   })
+
+function dragStart (d) {
+  simulation.alphaTarget(0.5).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function drag(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragEnd (d) {
+  simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
